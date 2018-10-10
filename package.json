@@ -1,0 +1,109 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate to build a full stack web application using React, Redux, Node.js, Express, Webpack, Graphql, Postgresql, Sequelize Material-UI, and Firebase.",
+  "main": "src/server/index.js",
+  "scripts": {
+    "prod": "concurrently 'npm run prod:client' 'npm run prod:server'",
+    "prod:client": "webpack --mode production && webpack-dev-server --mode production",
+    "prod:server": "NODE_ENV=production nodemon --exec babel-node -- src/server/index.js",
+    "dev": "concurrently 'npm run dev:client' 'npm run dev:server'",
+    "dev:client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "dev:server": "nodemon --exec babel-node -- src/server/index.js",
+    "test": "concurrently 'yarn test:server' 'yarn test:client'",
+    "test:server": "mocha test/server/**/*.js",
+    "test:client": "jest",
+    "test:client:watch": "jest --watch",
+    "test:client:coverage": "jest --coverage"
+  },
+  "proxy": "http://localhost:3001",
+  "author": "Yunus ÖZCAN",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
+    }
+  },
+  "dependencies": {
+    "@firebase/app-types": "0.x",
+    "@material-ui/core": "^3.2.0",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.1",
+    "body-parser": "1.18.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-graphql": "0.6.12",
+    "firebase": "^5.5.3",
+    "gql-query-builder": "1.0.5",
+    "graphql": "^14.0.2",
+    "helmet": "^3.13.0",
+    "jsonwebtoken": "8.3.0",
+    "jwt-decode": "^2.2.0",
+    "morgan": "1.9.1",
+    "pg": "^7.5.0",
+    "pg-hstore": "^2.3.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "sanitize.css": "^8.0.0",
+    "sequelize": "^4.39.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/node": "7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^4.0.1",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "react-test-renderer": "^16.5.2",
+    "regenerator-runtime": "^0.12.1",
+    "sinon": "^6.3.5",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/enzyme.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    }
+  }
+}

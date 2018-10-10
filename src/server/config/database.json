@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "yunusozcan",
+    "password": null,
+    "database": "graphql_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "yunusozcan",
+    "password": null,
+    "database": "graphql_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
